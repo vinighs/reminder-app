@@ -1,0 +1,78 @@
+{
+  "name": "lembretes-app",
+  "version": "1.0.0",
+  "description": "Aplicativo de lembretes com notificações",
+  "main": "main.js",
+  "keywords": [
+    "lembretes",
+    "electron",
+    "react"
+  ],
+  "author": "fine threads of sugar",
+  "email": "finethreadsofsugar@protonmail.com",
+  "homepage": "https://github.com/seu-usuario/lembretes-app",
+  "license": "ISC",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "electron .",
+    "dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.6",
+    "bootstrap-icons": "^1.12.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "simple-update-notifier": "^2.0.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
+    "electron": "^36.2.0",
+    "electron-builder": "^26.0.12",
+    "vite": "^6.3.5"
+  },
+  "build": {
+    "appId": "com.exemplo.lembretes",
+    "productName": "LembretesApp",
+    "copyright": "Copyright © 2025 fine threads of sugar",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "public/icon.ico"
+    },
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js"
+    ],
+    "directories": {
+      "output": "dist_electron"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "public/icon.png",
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "public/icon.png",
+      "maintainer": "fine threads of sugar",
+      "category": "Office"
+    },
+    "nsis": {
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "LembretesApp"
+    },
+    "extraResources": [
+      {
+        "from": "public/icon.png",
+        "to": "icon.png"
+      }
+    ]
+  }
+}

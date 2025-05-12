@@ -1,0 +1,1048 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #f5cce8 0%, #d5deff 100%);
+  --sidebar-bg: rgba(255, 255, 255, 0.2);
+  --card-bg: rgba(255, 255, 255, 0.4);
+  --text-color: #333;
+  --accent-color: #0080ff;
+  --border-radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Estilização da barra superior com botões de controle */
+.window-controls {
+  display: flex;
+  padding: 10px;
+  gap: 8px;
+  align-items: center;
+}
+
+.control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.red {
+  background-color: #ff5f56;
+}
+
+.yellow {
+  background-color: #ffbd2e;
+}
+
+.green {
+  background-color: #27c93f;
+}
+
+/* Estilos da barra lateral */
+.sidebar {
+  width: 100%;
+  max-width: 400px;
+  background: var(--sidebar-bg);
+  padding: 5px 10px 20px;
+  overflow-y: auto;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 400px;
+  }
+}
+
+.search-container {
+  position: relative; /* Criar contexto de posicionamento */
+  display: flex; /* Usar flexbox para alinhar o ícone e a barra de pesquisa */
+  align-items: center; /* Alinhar verticalmente os itens */
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px; /* Ajustar a distância do ícone da borda esquerda */
+  top: 50%;
+  transform: translateY(-65%); /* Centralizar verticalmente */
+  color: #777; /* Cor do ícone */
+  pointer-events: none; /* Permitir que cliques passem pelo ícone para o input */
+}
+
+.search-bar {
+  width: 100%;
+  padding: 8px 15px 10px 40px; /* Aumentar o padding para acomodar o ícone */
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 10px 0 15px;
+  font-size: 14px;
+}
+
+/* Adições ao seu CSS atual */
+
+.quick-lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  background: var(--card-bg);
+  cursor: pointer;
+  position: relative; /* Importante para posicionamento absoluto do contador */
+}
+
+.list-item-count {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.list-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.list-item-icon i {
+  font-size: 20px;
+  color: white;
+}
+
+.list-item-title {
+  font-size: 16px;
+  color: #777777;
+  margin-top: 5px;
+  font-weight: bold; /* Define o texto em negrito */
+
+}
+
+/* Cores para os ícones */
+.blue-icon {
+  background-color: #3478F6;
+}
+
+.red-icon {
+  background-color: #E44C4C;
+}
+
+.gray-icon {
+  background-color: #8E8E93;
+}
+
+.orange-icon {
+  background-color: #FF9F0A;
+}
+
+
+
+/* Estilo para item ativo */
+.list-item.active {
+  background-color: rgba(177, 177, 177, 0.6);
+}
+
+/* Estilo para o container das minhas listas */
+
+.my-lists .section-header {
+  margin-bottom: 10px; /* Ajuste este valor conforme necessário */
+  padding-left: 10px; /* Adiciona um preenchimento à esquerda para mover o texto para a direita */
+  font-size: 15px; /* Reduz o tamanho da fonte */
+  font-weight: bold; /* Define o texto em negrito */
+  color: #787878; /* Define a cor do texto para um cinza escuro */
+}
+
+.my-lists .my-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: var(--border-radius);
+  background: var(--card-bg);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+/* Container para o ícone e título */
+.my-list-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  }
+
+/* Estilo para o círculo colorido contendo ícone */
+.my-lists .my-list-content .circle-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.my-lists .my-list-content .circle-icon i {
+  font-size: 14px;
+  color: white;
+}
+
+.my-lists .my-list-content .blue-icon {
+  background-color: #0080ff;
+}
+
+.my-lists .my-list-content .orange-icon {
+  background-color: #ff9500;
+}
+
+.my-lists .my-list-content .red-icon {
+  background-color: #ff3b30;
+}
+
+.my-lists .my-list-content .green-icon {
+  background-color: #34c759;
+}
+
+
+
+/* Estilo para o título da minhalista */
+.my-list-item-title {
+  font-size: 16px;
+  color: #333;
+  font-weight: 400;
+}
+
+/* Container para o contador e botão de exclusão do minhalistas */
+.my-list-right {
+  display: flex; /* Garante que os itens fiquem lado a lado */
+  align-items: center; /* Alinha verticalmente os itens */
+  justify-content: flex-end; /* Alinha os itens à direita */
+  gap: 8px; /* Espaço entre o contador e o botão */
+  margin-left: auto; /* Empurra o container para o lado direito */
+  min-width: 80px; /* Garante espaço suficiente para os itens */
+}
+
+/* Estilo para o contador do minhalistas */
+.my-list-item-count {
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+  flex-shrink: 0; /* Impede que o contador encolha */
+  white-space: nowrap; /* Evita quebra de linha */
+}
+
+/* Estilo para o botão de exclusão do minhalistas */
+.delete-list-btn {
+  display: flex; /* Garante que o botão seja flexível */
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+  height: 24px;
+  width: 24px;
+  flex-shrink: 0; /* Impede que o botão encolha */
+}
+
+.delete-list-btn:hover {
+  color: #ff3b30;
+}
+
+.delete-list-btn i {
+  font-size: 18px;
+}
+
+
+/* Add list button */
+.add-list {
+  display: flex;
+  align-items: center;
+  padding: 10px 5px;
+  color: #666;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+/* Estilos para o modal de adicionar lista */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #1c1c1e;
+  color: white;
+  padding: 20px;
+  border-radius: 14px;
+  width: 700px;
+  height: 600px;  /* Adicionando altura fixa */
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: white;
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-content h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Preview do ícone */
+.preview .icon-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto 25px;
+}
+
+.preview .icon-preview i {
+  font-size: 36px;
+  color: white;
+}
+
+/* Input para nome da lista */
+.list-name-input {
+  width: 50%;
+  padding: 12px 15px;
+  margin: 10px 0 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #2c2c2e;
+  color: white;
+  text-align: center;
+}
+
+.list-name-input::placeholder {
+  color: #8e8e93;
+}
+
+/* Seletor de cores */
+.color-picker {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.color-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.color-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.color-circle:hover {
+  transform: scale(1.1);
+}
+
+.color-circle.selected {
+  box-shadow: 0 0 0 2px white;
+}
+
+/* Seletor de ícones */
+.icon-picker {
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 30px;
+}
+
+.icon-options {
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  gap: 20px;
+  justify-content: center;
+  padding: 0 5px;
+}
+
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.icon-circle i {
+  font-size: 20px;
+}
+
+.icon-circle:hover {
+  transform: scale(1.1);
+}
+
+.icon-circle.selected {
+  box-shadow: 0 0 0 2px white;
+}
+
+/* Botões de ação */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+
+.cancel-list-button, .add-list-button {
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  width: 48%;
+}
+
+.cancel-list-button {
+  background-color: #3a3a3c;
+  color: white;
+}
+
+.add-list-button {
+  background-color: #0080ff;
+  color: white;
+  font-weight: 500;
+}
+
+.add-list-button:hover {
+  background-color: #0056b3;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  padding: 20px 30px;
+  overflow-y: auto;
+  background-color: white;
+  position: relative;
+  /* border-radius: var(--border-radius);  Optional: adds rounded corners */
+  /* margin: 10px;  Optional: adds some spacing from the edges */
+}
+
+.list-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+  position: relative; /* Permite posicionar o botão */
+}
+
+.list-title-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.list-count {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.completed-count {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  color: #666;
+  font-size: 14px;
+}
+
+.show-button {
+  background: transparent;
+  color: var(--accent-color);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Reminder items */
+
+/* Ajuste para o campo de texto do lembrete */
+.reminder-title-input {
+  border: none; /* Remove as bordas */
+  font-size: 16px; /* Aumenta o tamanho da fonte */
+  width: 100%; /* Faz o campo ocupar toda a largura disponível */
+  resize: none; /* Impede o redimensionamento manual */
+  background: transparent; /* Remove o fundo */
+  outline: none; /* Remove o contorno ao focar */
+  word-wrap: break-word; /* Permite quebra de linha */
+  overflow-wrap: break-word; /* Adiciona suporte para quebra de palavras */
+}
+
+.reminder-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
+.reminder-info {
+  margin-left: 12px;
+  flex: 1;
+}
+
+.reminder-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.reminder-checkbox:checked {
+  background-color: #ffffff;
+  border-color: #007bff;
+  position: relative;
+}
+
+.reminder-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #007bff;
+  border-radius: 50%;
+}
+
+.reminder-date {
+  color: #888;
+  font-size: 14px;
+}
+
+.overdue-date-text {
+  color: red !important; /* Usamos !important para garantir que o estilo seja aplicado, caso haja outras regras mais específicas */
+}
+
+.reminder-details {
+  font-size: 12px;
+  color: #666;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu-icon {
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+}
+
+.menu-item {
+  padding: 10px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+.menu-item:hover {
+  background: #f0f0f0;
+}
+
+
+/* Container para o botão */
+.add-button-container {
+  display: flex;
+  justify-content: flex-end; /* Alinha o botão à direita */
+  margin-bottom: 10px; /* Espaço entre o botão e o restante do conteúdo */
+}
+
+/* Botão de adicionar */
+.add-button {
+  display: flex;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: 100;
+  color: #777777;
+  border: none;
+  background: transparent;}
+
+
+/* Modal Overlay */
+.modal-overlay.dark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.reminder-modal-content {
+  background: #1c1c1e;
+  color: white;
+  border-radius: 15px;
+  width: 480px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 24px 16px 16px;
+}
+
+/* Modal Title */
+.reminder-modal-title {
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Flag Button */
+.flag-button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: transparent;
+  border: none;
+  color: #ff0000;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Form Styling */
+.reminder-form {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+
+/* Ajuste o reminder-form-group */
+.reminder-form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* Previne overflow */
+}
+
+
+/* Title Input */
+.title-input {
+  margin-bottom: 10px;
+}
+
+.reminder-title-field {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 8px;
+  border-bottom: 1px solid #333;
+  color: white;
+  font-size: 20px;
+  padding: 10px 4px;
+  outline: none;
+}
+
+.reminder-title-field::placeholder {
+  color: #8e8e93;
+}
+
+/* Toggle Switch */
+.reminder-toggle-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.reminder-toggle-group label {
+  color: white;
+  font-size: 16px;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 40px;
+  height: 20px;
+}
+
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2c2c2e;
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.toggle-label:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.toggle-input:checked + .toggle-label {
+  background-color: #0080ff;
+}
+
+.toggle-input:checked + .toggle-label:before {
+  transform: translateX(18px);
+}
+
+/* Date Display */
+.date-time-group, .time-group {
+  align-items: center;
+  padding-left: 16px;
+}
+
+/* Corrigido: Container da lista */
+/* Garante que o container possa posicionar o input absoluto */
+.date-display {
+  display: flex;            /* Para alinhar texto e ícone */
+  justify-content: space-between; /* Espaço entre texto e ícone */
+  align-items: center;      /* Alinha verticalmente */
+  position: relative;       /* Essencial para o posicionamento absoluto do input */
+  background: #2c2c2e;      /* Cor de fundo (ajuste conforme seu tema) */
+  padding: 10px 60px;       /* Espaçamento interno */
+  border-radius: 8px;       /* Bordas arredondadas */
+  color: white;             /* Cor do texto */
+  cursor: pointer;          /* Indica que é clicável */
+  min-height: 38px;         /* Garante uma altura mínima clicável */
+  box-sizing: border-box;   /* Garante que padding não aumente o tamanho total */
+}
+
+
+/* Estilo para o texto da data dentro do display */
+.date-display span {
+  flex-grow: 1; /* Ocupa o espaço disponível */
+  margin-right: 8px; /* Espaço antes do ícone */
+  white-space: nowrap; /* Evita quebra de linha */
+  overflow: hidden;    /* Esconde texto que não couber */
+  text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+}
+
+/* Estilo para o ícone do calendário adicionado */
+.date-display .calendar-icon {
+  color: #8e8e93;          /* Cor do ícone (cinza claro) */
+  font-size: 16px;          /* Tamanho do ícone */
+  pointer-events: none;     /* MUITO IMPORTANTE: Permite que o clique "atravesse" o ícone */
+}
+
+/* Estilo para o input de data real (invisível, mas cobre toda a área) */
+.date-input {
+  opacity: 0;               /* Torna o input invisível */
+  position: absolute;       /* Posicionamento sobre o .date-display */
+  left: 0;
+  top: 0;
+  width: 100%;              /* Cobre toda a largura */
+  height: 100%;             /* Cobre toda a altura */
+  cursor: pointer;          /* Mantém o cursor de ponteiro */
+  border: none;             /* Remove bordas padrão */
+  padding: 0;               /* Remove padding padrão */
+  margin: 0;                /* Remove margem padrão */
+  /* Tenta forçar a exibição do picker nativo em alguns navegadores/cenários */
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Opcional: Estilos específicos para o webkit (Chrome, Safari) para garantir que o picker abra */
+.date-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: transparent; /* Esconde o ícone padrão do Chrome */
+  color: transparent;      /* Esconde o ícone padrão do Chrome */
+}
+
+/* Time Checkbox */
+.time-group {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 0;
+  padding-left: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.time-checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.time-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #3a3a3c;
+  border-radius: 4px;
+  margin-right: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.time-checkbox:checked {
+  background-color: #0080ff;
+  border-color: #0080ff;
+}
+
+.time-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.time-input-container {
+  position: relative;
+  width: 59%;
+}
+
+
+
+.time-display {
+  display: flex;            
+  justify-content: space-between; 
+  align-items: center;      
+  position: relative;       
+  background: #2c2c2e;     
+  padding: 10px 60px;      
+  border-radius: 8px;       
+  color: white;            
+  cursor: pointer;         
+  min-height: 38px;        
+  box-sizing: border-box;   
+}
+
+.time-display .time-icon {
+  color: #8e8e93;          
+  font-size: 16px;         
+  position: absolute;
+  right: 61px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;    
+}
+
+.time-input {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  font-size: 16px;
+  padding: 0;
+  outline: none;
+}
+
+.time-input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* Select Styling */
+.select-container {
+  position: relative;
+  width: 72%;
+}
+
+.display-select {
+  width: 100%;
+  background: #2c2c2e;
+  border: none;
+  color: white;
+  padding: 13px 11px;
+  border-radius: 8px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #8e8e93;
+}
+
+/* Location Input */
+.location-input {
+  width: 100%;
+  background: #2c2c2e;
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-top: 5px;
+}
+
+/* Button Group */
+.reminder-button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.cancel-button, .save-button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+}
+
+.cancel-button {
+  background-color: #2c2c2e;
+  color: white;
+}
+
+.save-button {
+  background-color: #0080ff;
+  color: white;
+}
+
+
