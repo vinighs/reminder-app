@@ -2,3 +2,9 @@ node_modules
 
 dist
 dist_electron
+build
+.vscode
+public
+.git
+package-lock.json
+

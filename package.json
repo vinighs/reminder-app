@@ -1,16 +1,16 @@
 {
-  "name": "lembretes-app",
+  "name": "reminder-for-linux",
   "version": "1.0.0",
-  "description": "Aplicativo de lembretes com notificações",
+  "description": "A user-friendly reminder application, designed to help you stay organized and never miss important tasks or events.",
   "main": "main.js",
   "keywords": [
-    "lembretes",
+    "reminder",
     "electron",
     "react"
   ],
   "author": "fine threads of sugar",
   "email": "finethreadsofsugar@protonmail.com",
-  "homepage": "https://github.com/seu-usuario/lembretes-app",
+  "homepage": "https://github.com/vinighs/reminder-app",
   "license": "ISC",
   "type": "commonjs",
   "scripts": {
@@ -35,7 +35,7 @@
   },
   "build": {
     "appId": "com.exemplo.lembretes",
-    "productName": "LembretesApp",
+    "productName": "Reminder For Linux",
     "copyright": "Copyright © 2025 fine threads of sugar",
     "mac": {
       "category": "public.app-category.productivity",
@@ -57,7 +57,8 @@
     "linux": {
       "target": [
         "AppImage",
-        "deb"
+        "deb",
+        "snap"
       ],
       "icon": "public/icon.png",
       "maintainer": "fine threads of sugar",
