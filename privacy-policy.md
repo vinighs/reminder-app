@@ -1,12 +1,12 @@
 
 # Privacy Policy / Política de Privacidade
 
-**Effective Date / Vigente a partir de:** [Preencha com a data de publicação]
+**Effective Date / Vigente a partir de:** 01/2025
 
 ## English Version
 
 ### 1. Overview
-This reminder application ("App") is a local productivity tool designed to help users manage personal notes and reminders on their own device. This App does not collect, store, or transmit any personal data to external servers.
+This reminder application is a local productivity tool designed to help users manage personal notes and reminders on their own device. This App does not collect, store, or transmit any personal data to external servers.
 
 ### 2. Data Collection and Usage
 - The App stores user notes and reminders locally on the user's device only.
